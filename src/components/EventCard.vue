@@ -1,18 +1,17 @@
-<script src="../helpers/Snackbar.ts"></script>
 <template>
   <div>
     <div class="is-event-card">
       <div class="is-event-card-icon">
-        <div class="is-icon-wrapper" :class="'has-background-' + department + '-lighten'">
+        <div class="is-icon-wrapper" :class="'has-background-' + event.category + '-lighten'">
           <div class="is-flex is-flex-direction-column is-align-items-center">
-            <DepartmentIcon :department="department" />
-            <span class="is-uppercase is-size-7" :class="'has-text-' + department">{{ department }}</span>
+            <DepartmentIcon :department="event.category" />
+            <span class="is-uppercase is-size-7" :class="'has-text-' + event.category">{{ event.category }}</span>
           </div>
         </div>
       </div>
       <div class="is-event-card-content">
-        <span class="is-size-3 is-text-weight-bold has-text-black">{{ title }}</span>
-        <span class="has-text-black">{{ date }}</span>
+        <span class="is-size-3 is-text-weight-bold has-text-black">{{ event.title }}</span>
+        <span class="has-text-black">{{ $d(new Date(event.ts), 'timeShort') + ', ' + $d(new Date(event.ts), 'dayMonthYear') }}</span>
       </div>
     </div>
   </div>
@@ -20,23 +19,26 @@
 
 <script lang="ts">
 import {Component, Prop, Emit} from "vue-property-decorator";
-import {mixins} from "vue-class-component";
-import ResponsiveChecks from "@/mixins/ResponsiveChecks.vue";
 import {Departments} from "@/helpers/constants";
 import DepartmentIcon from "@/components/DepartmentIcon.vue";
+import {IEventListEntry} from "@/models/EventModels";
+import Vue from "vue";
 
 @Component({
   components: {DepartmentIcon}
 })
-export default class EventCard extends mixins(ResponsiveChecks) {
-  @Prop({type: String, required: true})
+export default class EventCard extends Vue {
+  @Prop({type: Object, required: true})
+  public event!: IEventListEntry;
+
+  /*@Prop({type: String, required: true})
   public department!: Departments;
 
   @Prop({type: String, required: true})
   public title!: string;
 
   @Prop({type: String, required: true})
-  public date!: string;
+  public date!: string;*/
 }
 </script>
 
