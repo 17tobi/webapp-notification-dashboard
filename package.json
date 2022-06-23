@@ -1,0 +1,49 @@
+{
+	"name": "ASi-Dash",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"lint": "vue-cli-service lint",
+		"i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/*.json\""
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^6.1.1",
+		"@fortawesome/free-regular-svg-icons": "^6.1.1",
+		"@fortawesome/free-solid-svg-icons": "^6.1.1",
+		"@fortawesome/vue-fontawesome": "^2.0.6",
+		"bulma": "^0.9.3",
+		"bulma-start": "^0.0.4",
+		"bulma-tooltip": "^3.0.2",
+		"core-js": "^3.8.3",
+		"google-libphonenumber": "^3.2.27",
+		"roboto-fontface": "*",
+		"vue": "^2.6.14",
+		"vue-class-component": "^7.2.3",
+		"vue-i18n": "^8.27.0",
+		"vue-property-decorator": "^9.1.2",
+		"vue-router": "^3.5.1",
+		"vuex": "^3.6.2"
+	},
+	"devDependencies": {
+		"@fortawesome/fontawesome-free": "^6.1.1",
+		"@fortawesome/free-brands-svg-icons": "^6.1.1",
+		"@vue/cli-plugin-babel": "~5.0.0",
+		"@vue/cli-plugin-router": "~5.0.0",
+		"@vue/cli-plugin-typescript": "~5.0.0",
+		"@vue/cli-plugin-vuex": "~5.0.0",
+		"@vue/cli-service": "~5.0.0",
+		"axios": "^0.21.1",
+		"guid-typescript": "^1.0.9",
+		"i18n-iso-countries": "^7.4.0",
+		"msal": "^1.4.16",
+		"sass": "^1.32.7",
+		"sass-loader": "^12.0.0",
+		"typescript": "~4.5.5",
+		"vue-cli-plugin-axios": "~0.0.4",
+		"vue-cli-plugin-vue-i18n": "~1.0.1",
+		"vue-template-compiler": "^2.6.14",
+		"vuex-persistedstate": "^4.1.0"
+	}
+}
