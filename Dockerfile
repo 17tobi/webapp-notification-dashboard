@@ -5,7 +5,7 @@ COPY package*.json ./
 RUN npm set strict-ssl false
 RUN npm install
 COPY . .
-RUN npm run build --modern
+RUN npm run build --modern -- --mode=production
 
 # production stage
 FROM nginx:stable-alpine as production-stage
