@@ -2,9 +2,10 @@
 FROM node:lts-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
+RUN npm set strict-ssl false
 RUN npm install
 COPY . .
-RUN npm run build
+RUN npm run build --modern
 
 # production stage
 FROM nginx:stable-alpine as production-stage
