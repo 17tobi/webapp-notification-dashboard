@@ -12,10 +12,12 @@
 				</div>
 			</div>
 			<div class="is-event-card-content">
-				<span class="is-size-3 is-text-weight-bold has-text-black is-text-overflow-elipsis">{{ event.title }}</span>
-				<span class="has-text-black is-text-overflow-elipsis">{{
-						$d(new Date(event.ts), 'timeShort') + ', ' + $d(new Date(event.ts), 'dayMonthYear')
-					}}</span>
+				<div class="is-flex is-flex-direction-column mt-1">
+					<span class="is-size-3 is-text-weight-bold has-text-black is-text-overflow-elipsis is-event-title">{{ event.title }}</span>
+					<span class="has-text-black is-text-overflow-elipsis">
+						{{ $d(new Date(event.ts), 'timeShort') + ', ' + $d(new Date(event.ts), 'dayMonthYear') }}
+					</span>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -45,7 +47,7 @@ export default class EventCard extends Vue {
 @import '/src/scss/variables';
 
 .is-event-card {
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(255, 255, 255, 0.6);
 	backdrop-filter: blur(2px);
 
 	margin-top: $box-offset;
@@ -83,11 +85,15 @@ export default class EventCard extends Vue {
 
 	}
 
-	.is-text-overflow-elipsis {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		width: 400px;
+	.is-event-title {
+		line-height: 30px;
 	}
+}
+
+.is-text-overflow-elipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 420px;
 }
 </style>

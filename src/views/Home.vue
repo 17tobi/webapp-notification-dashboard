@@ -1,13 +1,8 @@
 <template>
 	<div>
-		<div v-if="events.length > 0">
+		<div v-if="events.length > 0" class="is-custom-flex">
 			<EventCard  v-for="(event, index) in events" :key="index" :event="event" />
 		</div>
-<!--    <EventCard :event :department="departments.DEVOPS" title="Test" date="17:17, 23.08.2022" />
-    <EventCard :department="departments.ICT" title="Test" date="17:17, 23.08.2022" />
-    <EventCard :department="departments.SWE" title="Test" date="17:17, 23.08.2022" />
-    <EventCard :department="departments.SOLUTIONS" title="Test" date="17:17, 23.08.2022" />
-    <EventCard :department="departments.IBMI" title="Test" date="17:17, 23.08.2022" />-->
 	</div>
 </template>
 
@@ -77,5 +72,11 @@ import {IEventListEntry} from "@/models/EventModels";
 </script>
 
 <style lang="scss" scoped>
-
+.is-custom-flex {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	flex-wrap: wrap;
+	max-height: 75vh;
+}
 </style>

@@ -33,6 +33,8 @@ body {
 
 	.has-bg-img {
 		background: url('@/assets/bg/night.svg')center center; background-size:cover;
+		max-height: 100vh;
+		overflow-y: hidden;
 	}
 }
 
