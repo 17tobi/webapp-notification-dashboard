@@ -6,7 +6,7 @@
         <Menu/>
       </div>
     </div>
-    <div class="hero-body">
+    <div class="hero-body is-align-items-start mt-5">
       <router-view />
     </div>
   </section>

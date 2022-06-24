@@ -51,7 +51,7 @@ export default class EventCard extends Vue {
 	margin-top: $box-offset;
 	margin-left: $box-offset;
 
-	width: 30rem;
+	width: 35rem;
 	max-width: 500px;
 	border-radius: $radius;
 	display: flex;

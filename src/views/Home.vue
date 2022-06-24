@@ -45,9 +45,9 @@ import {IEventListEntry} from "@/models/EventModels";
 
 	private mounted(): void {
 
-		this.api('http://localhost:8000/notifications').then((r: IEventListEntry[]) => this.events.push(...r));
+		this.api( process.env.VUE_APP_API_BASE_URL + '/notifications').then((r: IEventListEntry[]) => this.events.push(...r));
 
-		let connection = new WebSocket('ws://localhost:8000');
+		let connection = new WebSocket(process.env.VUE_APP_WS_BASE_URL);
 		connection.onmessage = (event) => {
 			if (event.data.match('created: ')) {
 				const newEvent = JSON.parse(event.data.replace('created: ', '')) as IEventListEntry;
