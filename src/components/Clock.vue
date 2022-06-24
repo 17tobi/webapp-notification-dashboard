@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <span class="is-size-1">{{ currentTime }}</span>
-    <p>{{ currentDay }}</p>
+  <div class="is-flex is-flex-direction-column is-align-items-center is-align-content-space-around">
+    <span class="is-clock">{{ currentTime }}</span>
+    <span>{{ currentDay }}</span>
   </div>
 </template>
 
@@ -31,8 +31,10 @@ export default class Clock extends mixins(ResponsiveChecks) {
 <style lang="scss" scoped>
 @import '/src/scss/variables';
 
-span {
-  font-family: 'Audiowide', cursive;
+.is-clock {
+    font-family: 'Audiowide', cursive;
+	text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+	font-size: 6em;
 }
 
 </style>

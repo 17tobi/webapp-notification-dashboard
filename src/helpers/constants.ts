@@ -1,9 +1,9 @@
 export enum Departments {
-	ICT = 'ict',
-	DEVOPS = 'devops',
-	IBMI = 'ibmi',
-	SOLUTIONS = 'solutions',
-	SWE = 'swe',
+	ICT = 'ICT',
+	DEVOPS = 'DevOps',
+	IBMI = 'IBMi',
+	SOLUTIONS = 'SOL',
+	SWE = 'SWE',
 }
 
 export enum Routes {

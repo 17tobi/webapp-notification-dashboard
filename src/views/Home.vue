@@ -1,6 +1,8 @@
 <template>
 	<div>
-    <EventCard v-for="(event, index) in events" :key="index" :event="event" />
+		<div v-if="events.length > 0">
+			<EventCard  v-for="(event, index) in events" :key="index" :event="event" />
+		</div>
 <!--    <EventCard :event :department="departments.DEVOPS" title="Test" date="17:17, 23.08.2022" />
     <EventCard :department="departments.ICT" title="Test" date="17:17, 23.08.2022" />
     <EventCard :department="departments.SWE" title="Test" date="17:17, 23.08.2022" />
@@ -24,7 +26,9 @@ import {IEventListEntry} from "@/models/EventModels";
 	export default class Home extends mixins(ResponsiveChecks) {
     private departments = Departments;
 
-    private get events(): IEventListEntry[] {
+    private events: IEventListEntry[] = [];
+
+    private get testevents(): IEventListEntry[] {
       return [
         {
           title: "Test",
@@ -38,6 +42,37 @@ import {IEventListEntry} from "@/models/EventModels";
         },
       ]
     }
+
+	private mounted(): void {
+
+		this.api('http://localhost:8000/notifications').then((r: IEventListEntry[]) => this.events.push(...r));
+
+		let connection = new WebSocket('ws://localhost:8000');
+		connection.onmessage = (event) => {
+			if (event.data.match('created: ')) {
+				const newEvent = JSON.parse(event.data.replace('created: ', '')) as IEventListEntry;
+				this.events.push(newEvent);
+			} else if (event.data.match('deleted: ')) {
+				const newEvent = JSON.parse(event.data.replace('deleted: ', '')) as IEventListEntry;
+				const existing = this.events.find(e => e.title === newEvent.title);
+				if (existing !== undefined) {
+					const index = this.events.indexOf(existing);
+					this.events.splice(index, 1);
+				}
+			}
+		}
+	}
+
+	private api(url: string): Promise<IEventListEntry[]> {
+		return fetch(url)
+			.then(response => {
+				if (!response.ok) {
+					throw new Error(response.statusText)
+				}
+				return response.json()
+			})
+	}
+
 	}
 </script>
 

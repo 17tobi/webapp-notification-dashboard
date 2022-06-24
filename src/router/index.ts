@@ -52,8 +52,6 @@ router.beforeEach((to: Route, from: Route, next: NavigationGuardNext) => {
 	}
 	document.title = title;
 
-	//reset fullscreen dialog state
-	store.commit('ui/resetFullScreenDialogOpenState');
 
 	next();
 });
