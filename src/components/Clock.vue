@@ -1,7 +1,7 @@
 <template>
   <div class="is-flex is-flex-direction-column is-align-items-center is-align-content-space-around">
     <span class="is-clock">{{ currentTime }}</span>
-    <span>{{ currentDay }}</span>
+    <span class=" is-date is-size-4 ">{{ currentDay }}</span>
   </div>
 </template>
 
@@ -35,6 +35,10 @@ export default class Clock extends mixins(ResponsiveChecks) {
     font-family: 'Audiowide', cursive;
 	text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 	font-size: 6em;
+}
+
+.is-date {
+	margin-top: -20px;
 }
 
 </style>

@@ -1,13 +1,8 @@
 <template>
 	<div>
-		<div v-if="events.length > 0">
+		<div v-if="events.length > 0" class="is-custom-flex">
 			<EventCard  v-for="(event, index) in events" :key="index" :event="event" />
 		</div>
-<!--    <EventCard :event :department="departments.DEVOPS" title="Test" date="17:17, 23.08.2022" />
-    <EventCard :department="departments.ICT" title="Test" date="17:17, 23.08.2022" />
-    <EventCard :department="departments.SWE" title="Test" date="17:17, 23.08.2022" />
-    <EventCard :department="departments.SOLUTIONS" title="Test" date="17:17, 23.08.2022" />
-    <EventCard :department="departments.IBMI" title="Test" date="17:17, 23.08.2022" />-->
 	</div>
 </template>
 
@@ -28,25 +23,24 @@ import {IEventListEntry} from "@/models/EventModels";
 
     private events: IEventListEntry[] = [];
 
-    private get testevents(): IEventListEntry[] {
-      return [
-        {
-          title: "Test",
-          category: Departments.DEVOPS,
-          ts: "2022-01-01T00:00:00Z"
-        },
-        {
-          title: "sdtste",
-          category: Departments.SWE,
-          ts: "2022-01-01T00:00:00Z"
-        },
-      ]
-    }
-
 	private mounted(): void {
 
 		this.api( process.env.VUE_APP_API_BASE_URL + '/notifications').then((r: IEventListEntry[]) => this.events.push(...r));
+		this.connect();
+	}
 
+	private api(url: string): Promise<IEventListEntry[]> {
+		return fetch(url)
+			.then(response => {
+				if (!response.ok) {
+					throw new Error(response.statusText)
+				}
+				return response.json()
+			})
+	}
+
+	public connect(): void {
+		let self = this;
 		let connection = new WebSocket(process.env.VUE_APP_WS_BASE_URL);
 		connection.onmessage = (event) => {
 			if (event.data.match('created: ')) {
@@ -61,21 +55,28 @@ import {IEventListEntry} from "@/models/EventModels";
 				}
 			}
 		}
+		connection.onclose = (e) => {
+			setTimeout(function () {
+				self.connect();
+			}, 1000);
+		};
+
+		connection.onerror = (err) => {
+			connection.close();
+		};
 	}
 
-	private api(url: string): Promise<IEventListEntry[]> {
-		return fetch(url)
-			.then(response => {
-				if (!response.ok) {
-					throw new Error(response.statusText)
-				}
-				return response.json()
-			})
-	}
+}
 
-	}
+
 </script>
 
 <style lang="scss" scoped>
-
+.is-custom-flex {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	flex-wrap: wrap;
+	max-height: 75vh;
+}
 </style>
