@@ -95,7 +95,7 @@ export default class DepartmentIcon extends mixins(ResponsiveChecks) {
   fill: $ibmi;
 }
 
-.solutions {
+.sol {
   fill: $sol;
 }
 </style>
