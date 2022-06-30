@@ -9,8 +9,8 @@ $swe-lighten: #E0ACED;
 $ibmi: #009206;
 $ibmi-lighten: #ACEDAE;
 
-$solutions: #003A92;
-$solutions-lighten: #ACCEED;
+$sol: #003A92;
+$sol-lighten: #ACCEED;
 
 $devops: #928300;
 $devops-lighten: #ECEDAC;
@@ -34,8 +34,8 @@ $custom-colors: (
         "ibmi": ($ibmi),
         "ibmi-lighten": ($ibmi-lighten),
 
-        "solutions": ($solutions),
-        "solutions-lighten": ($solutions-lighten),
+        "sol": ($sol),
+        "sol-lighten": ($sol-lighten),
 
         "devops": ($devops),
         "devops-lighten": ($devops-lighten),
