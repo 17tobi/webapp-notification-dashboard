@@ -96,6 +96,6 @@ export default class DepartmentIcon extends mixins(ResponsiveChecks) {
 }
 
 .solutions {
-  fill: $solutions;
+  fill: $sol;
 }
 </style>
