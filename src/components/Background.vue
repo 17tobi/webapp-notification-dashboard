@@ -1,8 +1,8 @@
 <template>
   <svg version="1.1" id="Layer_1"
        xmlns="http://www.w3.org/2000/svg"
-       xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2850 1800"
-       enable-background="new 0 0 2850 1800" xml:space="preserve">
+       xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2850 1800" preserveAspectRatio="xMidYMid slice" height="100%" width="100%"
+       xml:space="preserve">
 
 	<g class="img">
 		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="1425" y1="4.6407" x2="1425" y2="1804.6407">
