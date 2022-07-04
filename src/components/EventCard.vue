@@ -12,11 +12,16 @@
 				</div>
 			</div>
 			<div class="is-event-card-content">
-				<div class="is-flex is-flex-direction-column mt-1">
-					<span class="is-size-3 is-text-weight-bold has-text-black is-text-overflow-elipsis is-event-title">{{ event.title }}</span>
-					<span class="has-text-black is-text-overflow-elipsis">
-						{{ $d(new Date(event.ts), 'timeShort') + ', ' + $d(new Date(event.ts), 'dayMonthYear') }}
-					</span>
+				<div class="is-flex is-flex-direction-column">
+					<span class="is-size-3 has-text-black is-text-overflow-elipsis is-event-title">{{ event.title }}</span>
+					<div>
+						<span class="has-text-weight-bold is-uppercase">
+							{{ event.subTitle }}
+						</span>
+						<span class="has-text-black is-text-overflow-elipsis">
+							{{ $d(new Date(event.ts), 'timeShort') + ', ' + $d(new Date(event.ts), 'dayMonthYear') }}
+						</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -86,7 +91,7 @@ export default class EventCard extends Vue {
 	}
 
 	.is-event-title {
-		line-height: 30px;
+		line-height: 35px;
 	}
 }
 
