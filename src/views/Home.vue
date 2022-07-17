@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div v-if="events.length > 0" class="is-custom-flex">
-			<EventCard  v-for="(event, index) in events" :key="index" :event="event" />
+			<EventCard v-for="(event, index) in events" :key="index" :event="event" />
 		</div>
 	</div>
 </template>
