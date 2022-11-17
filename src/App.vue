@@ -28,7 +28,7 @@
 	})
 	export default class App extends Vue {
 
-		private imgUrl: string = "";
+		private imgUrl: string = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/eb053e63e4f33749a8b8e22d0c85e1714706d102/_bg-imgs/bg-day.svg";
 
 		private mounted(): void {
 			setInterval(() => {
