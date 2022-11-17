@@ -28,7 +28,7 @@
 	})
 	export default class App extends Vue {
 
-		private imgUrl: string = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/f95dc407e9f9508294a7e397cb6ebf021da8762f/_bg-imgs/bg-day.svg";
+		private imgUrl: string = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/3d51824b751ff274dc1e6f5252b703d24c714df1/_bg-imgs/bg-day.svg";
 
 		private mounted(): void {
 			setInterval(() => {
@@ -36,20 +36,20 @@
 					case 11:
 						if (new Date().getUTCHours() < 16) {
 							//day
-							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/f95dc407e9f9508294a7e397cb6ebf021da8762f/_bg-imgs/bg-xmas-day.svg";
+							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/3d51824b751ff274dc1e6f5252b703d24c714df1/_bg-imgs/bg-xmas-day.svg";
 						} else {
 							//night
-							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/f95dc407e9f9508294a7e397cb6ebf021da8762f/_bg-imgs/bg-xmas-night.svg";
+							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/3d51824b751ff274dc1e6f5252b703d24c714df1/_bg-imgs/bg-xmas-night.svg";
 						}
 						break;
 					default:
 
 						if (new Date().getUTCHours() < 16) {
 							//day
-							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/f95dc407e9f9508294a7e397cb6ebf021da8762f/_bg-imgs/bg-day.svg";
+							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/3d51824b751ff274dc1e6f5252b703d24c714df1/_bg-imgs/bg-day.svg";
 						} else {
 							//night
-							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/eb053e63e4f33749a8b8e22d0c85e1714706d102/_bg-imgs/bg-night.svg";
+							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/3d51824b751ff274dc1e6f5252b703d24c714df1/_bg-imgs/bg-night.svg";
 						}
 						break;
 				}
