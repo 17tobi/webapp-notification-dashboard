@@ -34,7 +34,7 @@
 			setInterval(() => {
 				switch (new Date().getMonth()) {
 					case 11:
-						if (new Date().getHours() < 16) {
+						if (new Date().getUTCHours() < 16) {
 							//day
 							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/f95dc407e9f9508294a7e397cb6ebf021da8762f/_bg-imgs/bg-xmas-day.svg";
 						} else {
@@ -44,7 +44,7 @@
 						break;
 					default:
 
-						if (new Date().getHours() < 16) {
+						if (new Date().getUTCHours() < 16) {
 							//day
 							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/f95dc407e9f9508294a7e397cb6ebf021da8762f/_bg-imgs/bg-day.svg";
 						} else {
