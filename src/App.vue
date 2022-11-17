@@ -54,7 +54,7 @@
 						break;
 				}
 
-			}, 3600000);
+			}, 1000);
 		}
 
 		private get img(): string {
