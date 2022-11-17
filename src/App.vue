@@ -2,7 +2,7 @@
   <section class="hero has-bg-img is-fullheight">
     <div class="bg-image">
 <!--      <Background />-->
-	    <img alt="bg" src="../_bg-imgs/bg-day.svg" width="100%" />
+	    <img alt="bg" :src="imgUrl" width="100%" />
     </diV>
     <div class="hero-head mt-5">
       <div class="container has-text-centered">
@@ -40,10 +40,10 @@
 
 						if (new Date().getHours() < 16) {
 							//day
-							this.imgUrl = "";
+							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/eb053e63e4f33749a8b8e22d0c85e1714706d102/_bg-imgs/bg-day.svg";
 						} else {
 							//night
-							this.imgUrl = "";
+							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/eb053e63e4f33749a8b8e22d0c85e1714706d102/_bg-imgs/bg-night.svg";
 						}
 						break;
 				}
