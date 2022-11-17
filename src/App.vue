@@ -34,7 +34,13 @@
 			setInterval(() => {
 				switch (new Date().getMonth()) {
 					case 11:
-						this.imgUrl = "";
+						if (new Date().getHours() < 16) {
+							//day
+							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/eb053e63e4f33749a8b8e22d0c85e1714706d102/_bg-imgs/bg-xmas-day.svg";
+						} else {
+							//night
+							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/eb053e63e4f33749a8b8e22d0c85e1714706d102/_bg-imgs/bg-xmas-night.svg";
+						}
 						break;
 					default:
 
