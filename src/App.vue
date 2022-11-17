@@ -34,7 +34,7 @@
 			setInterval(() => {
 				switch (new Date().getMonth()) {
 					case 11:
-						if (new Date().getUTCHours() < 16) {
+						if (new Date().getUTCHours() < 15) {
 							//day
 							this.imgUrl = "https://raw.githubusercontent.com/17tobi/webapp-notification-dashboard/3d51824b751ff274dc1e6f5252b703d24c714df1/_bg-imgs/bg-xmas-day.svg";
 						} else {
