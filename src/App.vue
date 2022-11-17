@@ -1,7 +1,8 @@
 <template>
   <section class="hero has-bg-img is-fullheight">
     <div class="bg-image">
-      <Background />
+<!--      <Background />-->
+	    <img alt="bg" src="../_bg-imgs/bg-day.svg" width="100%" />
     </diV>
     <div class="hero-head mt-5">
       <div class="container has-text-centered">
@@ -27,6 +28,37 @@
 	})
 	export default class App extends Vue {
 
+		private imgUrl: string = "";
+
+		private mounted(): void {
+			setInterval(() => {
+				switch (new Date().getMonth()) {
+					case 11:
+						this.imgUrl = "";
+						break;
+					default:
+
+						if (new Date().getHours() < 16) {
+							//day
+							this.imgUrl = "";
+						} else {
+							//night
+							this.imgUrl = "";
+						}
+						break;
+				}
+
+			}, 3600000);
+		}
+
+		private get img(): string {
+			setInterval(() => {
+
+			}, 1000);
+
+			return "";
+		}
+
 	}
 </script>
 
@@ -36,7 +68,7 @@ body {
   font-family: 'Roboto';
 
 	.has-bg-img {
-		
+
 		max-height: 100vh;
 		overflow-y: hidden;
     > .bg-image {
