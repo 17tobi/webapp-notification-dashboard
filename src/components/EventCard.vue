@@ -1,28 +1,35 @@
 <template>
-	<div>
+	<div class="m-3">
 		<div class="is-event-card">
 			<div class="is-event-card-icon">
-				<div class="is-icon-wrapper" :class="'has-background-' + eventCategoryLower + '-lighten'">
+				<div class="is-icon-wrapper" :class="'has-background-' + eventDepartmentLower + '-lighten'">
 					<div class="is-flex is-flex-direction-column is-align-items-center">
-						<DepartmentIcon :department="event.category"/>
-						<span class="is-uppercase is-size-7" :class="'has-text-' + eventCategoryLower">{{
-								event.category
+						<DepartmentIcon :department="event.department"/>
+						<span class="is-uppercase is-size-7" :class="'has-text-' + eventDepartmentLower">{{
+								event.department
 							}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="is-event-card-content">
 				<div class="is-flex is-flex-direction-column">
-					<span class="is-size-3 has-text-black is-text-overflow-elipsis is-event-title">{{ event.title }}</span>
+					<span class="is-size-3 has-text-black is-text-overflow-elipsis is-event-title">{{
+							event.title
+						}}</span>
 					<div>
-						<span class="has-text-weight-bold is-uppercase">
-							{{ event.subTitle }}
-						</span>
+					<span class="has-text-weight-bold is-uppercase">
+						{{ event.host }}
+					</span>
 						<span class="has-text-black is-text-overflow-elipsis">
-							{{ $d(new Date(event.ts), 'timeShort') + ', ' + $d(new Date(event.ts), 'dayMonthYear') }}
-						</span>
+						{{
+								$d(new Date(event.timestamp), 'timeShort') + ', ' + $d(new Date(event.timestamp), 'dayMonthYear')
+							}}
+					</span>
 					</div>
 				</div>
+			</div>
+			<div v-if="showControls">
+				<button @click="del(event.id)" class="has-background-danger has-text-white">X</button>
 			</div>
 		</div>
 	</div>
@@ -42,8 +49,19 @@ export default class EventCard extends Vue {
 	@Prop({type: Object, required: true})
 	public event!: IEventListEntry;
 
-	private get eventCategoryLower(): string {
-		return this.event.category.toLowerCase();
+	@Prop({type: Boolean, default: false})
+	public darkMode!: boolean;
+
+	@Prop({type: Boolean, default: false})
+	public showControls!: boolean;
+
+	private get eventDepartmentLower(): string {
+		return this.event.department.toLowerCase();
+	}
+
+	@Emit('del')
+	public del(id: number): number {
+	    return id;
 	}
 }
 </script>
@@ -52,7 +70,7 @@ export default class EventCard extends Vue {
 @import '/src/scss/variables';
 
 .is-event-card {
-	background-color: rgba(255, 255, 255, 0.6);
+	background-color: rgba(231, 231, 231, 0.6);
 	backdrop-filter: blur(2px);
 
 	margin-top: $box-offset;

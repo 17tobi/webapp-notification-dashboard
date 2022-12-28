@@ -3,21 +3,31 @@ import VueRouter, {NavigationGuardNext, Route, RouteConfig} from 'vue-router';
 import {Routes} from "@/helpers/constants";
 import i18n from "@/plugins/i18n";
 import store from '@/store/index';
-import Home from "@/views/Home.vue";
+import Home from "@/views/Notifications.vue";
 import Debug from "@/views/debug/Debug.vue";
 import {Position} from "vue-router/types/router";
+import Control from '@/views/Control.vue';
+import Dashboard from '@/views/Dashboard.vue';
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
 	{
 		path: '/',
-		name: Routes.home,
-		component: Home,
+		name: Routes.dashboard,
+		component: Dashboard,
 		meta: {
-			title: 'pageTitles.home',
+			title: 'pageTitles.dashboard',
 		},
-		alias: ['/home', '']
+		alias: ['/dashboard', '']
+	},
+	{
+		path: '/control',
+		name: Routes.control,
+		component: Control,
+		meta: {
+			title: 'pageTitles.control',
+		},
 	},
 	{
 		path: '/debug',

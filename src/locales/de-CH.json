@@ -4,9 +4,11 @@
 	},
 
 	"pageTitles": {
-		"application": "ASi-Dash",
+		"application": "ASi-Notifications",
 
-		"home": "Home"
+		"home": "Home",
+		"dashboard": "Dashboard",
+		"control": "Control"
 	}
 
 }

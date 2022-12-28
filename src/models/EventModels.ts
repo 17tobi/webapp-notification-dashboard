@@ -2,10 +2,10 @@ import IModel from "@/models/IModel";
 import {Departments} from "@/helpers/constants";
 
 export interface IEventSimple extends IModel{
-    category: Departments;
-    ts: string;
+    department: Departments;
+    timestamp: string;
     title: string;
-    subTitle: string;
+    host: string;
 }
 
 export interface IEventListEntry extends IEventSimple {
