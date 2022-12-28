@@ -46,7 +46,6 @@ export default class Notifications extends mixins(ResponsiveChecks) {
 	}
 
 	private mounted(): void {
-		console.log(process.env.VUE_APP_API_BASE_URL);
 		this.api(process.env.VUE_APP_API_BASE_URL + '/notifications').then((r: IEventListEntry[]) => this.events.push(...r));
 		this.connect();
 	}
@@ -63,8 +62,8 @@ export default class Notifications extends mixins(ResponsiveChecks) {
 
 	public connect(): void {
 		let self = this;
-		//let connection = new WebSocket(process.env.VUE_APP_WS_BASE_URL + '/messages');
-		let connection = new WebSocket('ws://localhost:8080/messages');
+		let connection = new WebSocket(process.env.VUE_APP_WS_BASE_URL + '/messages');
+		//let connection = new WebSocket('ws://localhost:8080/messages');
 		connection.onmessage = (event) => {
 			let json = JSON.parse(event.data);
 			console.log(json);
