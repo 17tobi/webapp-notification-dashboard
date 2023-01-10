@@ -22,7 +22,7 @@
 					</span>
 						<span class="has-text-black is-text-overflow-elipsis">
 						{{
-								$d(new Date(event.timestamp), 'timeShort') + ', ' + $d(new Date(event.timestamp), 'dayMonthYear')
+								$d(timeStamp, 'timeShort') + ', ' + $d(timeStamp, 'dayMonthYear')
 							}}
 					</span>
 					</div>
@@ -58,6 +58,18 @@ export default class EventCard extends Vue {
 	private get eventDepartmentLower(): string {
 		return this.event.department.toLowerCase();
 	}
+
+  private get timeStamp(): Date {
+    try {
+      // correct format yyyy-mm-dd hh:mm:ss +0100 to yyyy-mm-dd hh:mm:ss+0100
+      if (this.event.timestamp.includes(' +')) {
+        this.event.timestamp = this.event.timestamp.replace(' +', '+');
+      }
+      return new Date(this.event.timestamp)
+    } catch (e) {
+      return new Date();
+    }
+  }
 
 	@Emit('del')
 	public del(id: number): number {

@@ -1,7 +1,7 @@
 export enum Departments {
 	ICT = 'ICT',
 	DEVOPS = 'DEVOPS',
-	IBMI = 'IBMi',
+	IBMI = 'IBMI',
 	SOLUTIONS = 'SOL',
 	SWE = 'SWE',
 }
