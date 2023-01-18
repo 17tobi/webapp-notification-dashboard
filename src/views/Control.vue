@@ -20,7 +20,7 @@ export default class Control extends Vue {
 
 	private remove(id: number): void {
 		console.log(id);
-		let url = process.env.VUE_APP_API_BASE_URL + '/notification';
+		let url = process.env.VUE_APP_API_BASE_URL + '/notifications';
 		fetch(url + '?token=' + process.env.VUE_APP_ACCESS_TOKEN + '&id=' + id,{
 			method: 'DELETE'
 		})

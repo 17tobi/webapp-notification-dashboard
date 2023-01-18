@@ -2,8 +2,6 @@ import Vue from 'vue';
 import VueRouter, {NavigationGuardNext, Route, RouteConfig} from 'vue-router';
 import {Routes} from "@/helpers/constants";
 import i18n from "@/plugins/i18n";
-import store from '@/store/index';
-import Home from "@/views/Notifications.vue";
 import Debug from "@/views/debug/Debug.vue";
 import {Position} from "vue-router/types/router";
 import Control from '@/views/Control.vue';

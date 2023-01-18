@@ -10,5 +10,7 @@ RUN npm run build --modern -- --mode=production
 # production stage
 FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
+COPY deployment/nginx.conf /etc/nginx/templates/default.conf.template
+
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
