@@ -45,6 +45,19 @@ export default class Notifications extends mixins(ResponsiveChecks) {
 		}
 	}
 
+  private get dummyEvents(): IEventSimple[] {
+    return [
+        this.dummyEvent,
+      {
+        id: 2,
+        department: Departments.IBMI,
+        timestamp: '2022-01-02 15:23:17 +0100',
+        title: 'I a m from icinga',
+        host: 'Icinga',
+      }
+    ]
+  }
+
 	private mounted(): void {
 		this.api(process.env.VUE_APP_API_BASE_URL + '/notifications').then((r: IEventListEntry[]) => this.events.push(...r));
 		this.connect();
